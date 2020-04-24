@@ -8,14 +8,14 @@
 
   <!-- Title -->
   
-  <title>Histography for UESTC - Jingyi Chu</title>
+  <title>String Instrument Onsets Detection using CNN - Jingyi Chu</title>
 
   <!--Favicon-->
   <link rel="icon" href="favicon/favicon.ico">
 
   <!--Description-->
   
-      <meta name="description" content="Histography for University of Electronic Science and Technology of China (UESTC) is an individual project completed when doing in the intern in UESTC ">
+      <meta name="description" content="Onsets detection is the primary step for other high-level music analysis. However, less research focuses on string instrument detection. With the high">
   
 
   <!--Author-->
@@ -73,48 +73,73 @@
 
   		<div class="row">
   			<div class="col-12 mb-4">
-  <img class="img-fluid project-img" src="/images/histocover.jpg" alt="Histography for UESTC">
+  <img class="img-fluid project-img" src="/images/CNNcover.jpg" alt="String Instrument Onsets Detection using CNN">
 </div>
 <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
-  <h1>Histography for UESTC</h1>
+  <h1>String Instrument Onsets Detection using CNN</h1>
 </div>
 <div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
   <html> 
 
-<p style="font-size:17px">Histography for University of Electronic Science and Technology of China (UESTC) is an individual project completed when doing in the intern in UESTC Upteam. Got the idea from <a href="https://histography.io/" target="_blank" rel="noopener">Hisrography - Timeline of History</a>, I combine the timeline with the wall interactive projection to realize a history timeline of my home university in China. </p>
+<p style="font-size:17px">Onsets detection is the primary step for other high-level music analysis. However, less research focuses on string instrument detection. With the high demand for automatic system development, this project addresses the string instrument onsets detection using a convolutional neural network (CNN). The project was programmed using <i>Python</i>, and <i>Keras (Tensorflow)</i>. The network operates based on the dataset of more than 250 minutes music ﬁles and 2,000 onsets annotation, which is divided into training, validation and testing for future use.</p>
 
 <br>
 
-<p style="font-size:17px">The important thing I needed to mention, is that because of COVID 19,  I can't go back to my studio for debugging. Therefore, the pictures below are the webpage screenshot using my laptop. The HTML elements are miss-aligned because of the different resolution between my screen and projector in the studio. </p>
-
-<br>
-
-<div align="center">
-<img src="https://i.loli.net/2020/04/24/ZaQ6tScDfBpmM95.gif" alt="screenshot.gif" width="100%" title="screenshot.gif">
-</div>
-
-<br>
-
-<p style="font-size:17px">(The The mouse here mimics the touchpoint in the on the wall.)</p>
-
-<br>
-
-
-<p style="font-size:17px">The purpose of developing this project is to celebrate the UESTC's 64th anniversary. The dot colour <i><span style="color:#1b3065;font-size:17px">#1b3065</span></i>is picked from UESTC's badge. </p>
-
-<br>
-
-
-<p style="font-size:17px">The whole project used <i>Vue.js</i> as the JavaScript framework. The timeline was generated using <i>chart.js</i>. <a href="https://github.com/agnoCJY/UESTC-histography" target="_blank" rel="noopener">(GitHub address)</a></p>
+<p style="font-size:17px">The CNN network used <i>MFCCs</i> and <i>Delta MFCCs</i> as the two input channels. Then connected with two <i>convolutional layers</i> and one <i>max-pooling layer</i> to extract the feature maps. Then those maps were imported to the <i>fully connected layer</i>. The output was represented using two-hot-code: (1,0) is non-onset; (0,1) is onset.</p>
 
 <br>
 
 <div align="center">
-<img src="/images/ezgif.com-video-to-gif.gif" alt="debugging.gif" width="100%" title="debugging.gif">
+<img src="https://i.loli.net/2020/04/25/alNvWVuT3YXKHhC.png" alt="CNN.jpg" width="100%" title="cnn.jpg">
 </div>
 <br>
+<br>
+<pre style="background-color: #F9F9F9; font-size:14px; line-height:25px">
+    model = Sequential()
+    model.add(Conv2D(32, kernel_size=(3, 3),
+                    activation='relu',
+                    input_shape=input_shape,
+                    data_format='channels_last'))
+    model.add(Conv2D(64, (3, 3), activation='relu',
+                    input_shape=input_shape,
+                    data_format='channels_last'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(0.5))
+    model.add(Flatten())
+    model.add(Dense(32, activation='relu'))
+    model.add(Dropout(0.5))
+    model.add(Dense(num_classes, activation='softmax'))
+</pre>
 
-<p style="font-size:17px">(Debugging in the studio. <i>Sept.12.2019 </i>)</p>
+<br>
+
+<p style="font-size:17px">Despite Keras has the build-in <i>EarlyStopping</i> function for validation, I replaced the valid criteria as <i>F-measure</i> for accurate detection. The stopping function was achieved by model saving and loading.</p>
+
+<br>
+
+<div align="center">
+<img src="https://i.loli.net/2020/04/25/G7tQ6YfLmXqAWHr.png" alt="CNN.jpg" width="100%" title="cnn.jpg">
+</div>
+
+<br>
+
+<p style="font-size:17px">After modifying the hyperparameters: MFCC frame size, MFCC filterbank number, Kernel number, batch size, and dropout, the highest F-measure was 0.86.</p>
+
+
+<ul style="font-size:17px">
+    <li>MFCC frame size = 12 ms</li>
+    <li>MFCC filterbank number  = 70</li>
+    <li>Two convolution layers with 32 and 64 kernels</li>
+    <li>The network is training with 128 batch size and 50% dropout</li>
+</ul>
+
+
+<div align="center">
+<img src="https://i.loli.net/2020/04/25/7KGpPad4jTUEwWr.png" alt="CNN.jpg" width="100%" title="cnn.jpg">
+</div>
+<br>
+<p style="font-size:17px">(The red line represents network detected onsets, the blue line represents onsets annotation)</p>
+
 
 </html>
 
