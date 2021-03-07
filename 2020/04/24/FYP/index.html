@@ -82,16 +82,26 @@
   <html> 
 
 <p style="font-size:17px">Onsets detection is the primary step for other high-level music analysis. However, less research focuses on string instrument detection. Since the high demand for automatic system development, this project aims to addresses the string instrument onsets detection using a convolutional neural network (CNN). The project was programmed using <i>Python</i>, and <i>Keras (Tensorflow)</i>. The network is built based on the dataset of more than 250 minutes of music files and 2,000 onsets annotation, aiming to fulfill the training, validation, and testing process.</p>
+<p style="font-size:15px; color:#BDBDBD">起始音检测是许多高阶因为分析的基础。然而，针对弦乐起始音检测的研究却相对较少。由于对自动化系统的高开发需求，本项目着重于利用卷积神经网络（CNN）开发能够自动完成弦乐起始音检测的系统。项目使用 <i>Python</i> 进行编程， <i>Keras (Tensorflow)</i> 搭建神经网络。整个数据集包含超过 250 分钟的弦乐样本，并包含有超过 2000 个的人工标注。</p>
+
 
 <br>
 
 <p style="font-size:17px">The CNN network used <i>MFCCs</i> and <i>Delta MFCCs</i> as the two input channels. Then connected with two <i>convolutional layers</i> and one <i>max-pooling layer</i> to extract the feature maps. Then those maps were imported to the <i>fully connected layer</i>. The output was represented using two-hot-code: (1,0) is non-onset; (0,1) is onset.</p>
+<p style="font-size:15px; color:#BDBDBD">项目中的 CNN 网络采用 <i>MFCCs</i> 和 <i>Delta MFCCs</i> 两个输入通道。随后将数据与两个 <i>卷积层</i> 和一个 <i>池化层</i> 相连接，提取特征图。随后，特征数据将导入 <i>全连接层</i>。 最终的结果采用独热码来表示：（1,0）表示非起始音；（0,1）表示起始音。</p>
+
 
 <br>
 
 <div align="center">
 <img src="https://i.loli.net/2020/04/25/alNvWVuT3YXKHhC.png" alt="CNN.jpg" width="100%" title="cnn.jpg">
 </div>
+<br>
+
+<p style="font-size:17px">(Network Structure)</p>
+<p style="font-size:15px; color:#BDBDBD">（神经网络结构图）</p>
+
+
 <br>
 <br>
 <pre style="background-color: #F9F9F9; font-size:14px; line-height:25px">
@@ -110,27 +120,46 @@
     model.add(Dropout(0.5))
     model.add(Dense(num_classes, activation='softmax'))
 </pre>
+<br>
+
+<p style="font-size:17px">(Network Structure Code)</p>
+<p style="font-size:15px; color:#BDBDBD">（神经网络结构代码）</p>
 
 <br>
 
-<p style="font-size:17px">Despite Keras has the build-in <i>EarlyStopping</i> function for validation, I replaced the valid criteria as <i>F-measure</i> for accurate detection. The stopping function was achieved by model saving and loading.</p>
+<p style="font-size:17px">Despite Keras has the build-in <i>EarlyStopping</i> function for validation, I defined a new function using <i>F-measure</i> as the valid criteria for accurate detection. The stopping function was achieved by model saving and loading.</p>
+<p style="font-size:15px; color:#BDBDBD">尽管 Keras 已经提供了内置的 <i>EarlyStopping</i> 函数用来验证训练结果。但为了提高训练准确性，我将其替换成了自定义的函数。该函数采用 <i>F-measure</i> 作为检测正确率的标准。停止训练和继续训练的功能通过保存和加载训练模型来实现。</p>
 
 <br>
 
 <div align="center">
 <img src="https://i.loli.net/2020/04/25/G7tQ6YfLmXqAWHr.png" alt="CNN.jpg" width="100%" title="cnn.jpg">
 </div>
+<br>
+
+<p style="font-size:17px">(Custom Function Logic Structure Diagram)</p>
+<p style="font-size:15px; color:#BDBDBD">（自定义函数逻辑结构图）</p>
 
 <br>
 
 <p style="font-size:17px">After optimizing the hyperparameters: MFCC frame size, MFCC filterbank number, Kernel number, batch size, and dropout, the highest F-measure was 0.86.</p>
+<p style="font-size:15px; color:#BDBDBD">经过调参（MFCC 采样帧宽度，MFCC 滤波器，卷积核数量，批尺寸，随机忽略的神经元数量），最终的准确率为：0.86. </p>
 
+<br>
+
+
+<p style="font-size:17px">Final parameters:</p>
+<p style="font-size:15px; color:#BDBDBD">最终参数：</p>
 
 <ul style="font-size:17px">
     <li>MFCC frame size = 12 ms</li>
+    <li style="font-size:15px; color:#BDBDBD">MFCC 采样帧宽度 = 12 毫秒</li>
     <li>MFCC filterbank number  = 70</li>
+    <li style="font-size:15px; color:#BDBDBD">MFCC 滤波器 = 70</li>
     <li>Two convolution layers with 32 and 64 kernels</li>
-    <li>The network is training with 128 batch size and 50% dropout</li>
+    <li style="font-size:15px; color:#BDBDBD">神经网络包含两个卷积层，分别有 32 个和 64 个卷积核</li>
+    <li>The network is training with 128 batch size and 50% dropout to avoid over fitting</li>
+    <li style="font-size:15px; color:#BDBDBD">训练过程的批尺寸为：每次128个，并忽略 50% 的神经元避免过拟合</li>
 </ul>
 
 
@@ -138,12 +167,14 @@
 <img src="https://i.loli.net/2020/04/25/7KGpPad4jTUEwWr.png" alt="CNN.jpg" width="100%" title="cnn.jpg">
 </div>
 <p style="font-size:17px; text-align:center">(The red line represents network detected onsets, the blue line represents onsets annotation)</p>
+<p style="font-size:15px; color:#BDBDBD; text-align:center">（红线代表检神经网络判断的起始音，蓝线代表人工标注的起始音）</p>
+
 <br>
 
 <hr>
 <br>
-<p><img src="/images/海报.png" width="3%"><a href="/images/Jingyi Chu-poster.pdf" download="poster">Download project open day poster</a>
-</p><p><img src="/images/Github.png" width="3%"><a href="https://github.com/agnoCJY/string_instrument_onsets_detection_using_CNN" target="_blank" rel="noopener">GitHub</a></p>
+<p><img src="/images/海报.png" width="3%"><a href="/images/Jingyi Chu-poster.pdf" download="poster"> Download project open day poster <span style="font-size:15px; color:#BDBDBD">下载开放日海报</span></a></p>
+<p><img src="/images/Github.png" width="3%"><a href="https://github.com/agnoCJY/string_instrument_onsets_detection_using_CNN" target="_blank" rel="noopener"> GitHub</a></p>
 
 </html>
 </div>
