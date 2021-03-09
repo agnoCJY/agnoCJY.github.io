@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head tag -->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  
+  <title>Scottish School Exam Papers - An Interactice Web Comic - Jingyi Chu</title>
+
+  <!--Favicon-->
+  <link rel="icon" href="favicon/favicon.ico">
+
+  <!--Description-->
+  
+      <meta name="description" content="In my first semester of postgraduate study, my friends and I completed a project on data visualisation. The project leader at the National Library of ">
+  
+
+  <!--Author-->
+  
+      <meta name="author" content="John Doe">
+  
+
+  <!-- Pure CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+
+  <body>
+  	<div class="container-fluid navbar-container m-sm-5">
+      <!-- Header -->
+      <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+  <a class="navbar-brand ml-2" href="/">Jingyi Chu</a>
+  <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse text-center" id="navbarCollapse">
+    <ul class="navbar-nav ml-auto my-auto">
+      
+        <li class="nav-item">
+          <a class="nav-link" href="/About">ABOUT</a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="/Resume">RESUME</a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="/Friends">FRIENDS</a>
+        </li>
+      
+    </ul>
+    <hr class="hidden-md-up" />
+  </div>
+</nav>
+
+
+  		<div class="row">
+  			<div class="col-12 mb-4">
+  <img class="img-fluid project-img" src="/images/ds4d.jpg" alt="Scottish School Exam Papers - An Interactice Web Comic">
+</div>
+<div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
+  <h1>Scottish School Exam Papers - An Interactice Web Comic</h1>
+</div>
+<div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
+  <html> 
+
+<p style="font-size:17px">In my first semester of postgraduate study, my friends and I completed a project on data visualisation. The project leader at the National Library of Scotland provided us with the original data: <a href="https://data.nls.uk/data/digitised-collections/scottish-exams/" target="_blank" rel="noopener">Scottish examination papers from 1888 to 1963</a>. The dataset contains photographs of the papers and no clean-up OCR text containing 2,849,689 words. The data holder (National Library of Scotland) wanted us to tell the story behind the data in a more vivid and engaging way.</p>
+<p style="font-size:15px; color:#BDBDBD">在研究生第一学期，我和朋友们完成了一个数据可视化的课题。苏格兰国家图书馆的项目负责人给我们提供了原数据：<a href="https://data.nls.uk/data/digitised-collections/scottish-exams/" style="color:#BDBDBD" target="_blank" rel="noopener">从1888年到1963年的苏格兰考试试卷</a>。数据集包含试卷的照片，和总共 2,849,689 个词的未校验 OCR 文本。数据持有者（苏格兰国家图书馆）希望我们将这些数据背后的故事的以一个更生动的，更吸引人的方式讲述出来。</p>
+
+<br>
+
+<p style="font-size:17px">In the group, I was responsible for analysing the changes in the subjects of the exams over time. In the data analysing phase, I chose the exam time as the anchor point to locate the exam subject. To improve the extraction accuracy, I tried two methods: assigning values to keywords and setting thresholds to filter the time rows; using regular expressions for extraction. There were two main difficulties in using the first method (assigning values to keywords). Firstly, the unchecked text, for reasons such as misspelling of keywords, makes it difficult for some of the keywords to be assigned values. Secondly, the setting of thresholds is closely related to the accuracy rate. If there is enough time, the data can be annotated for training and machine learning methods can be used to find the optimal threshold to improve the accuracy of extracting subjects.</p>
+<p style="font-size:15px; color:#BDBDBD">在小组分工中，我负责分析考试的科目随时间的变化。在数据处理阶段，我选择考试时间作为锚点来定位考试科目并将它提取出来。为提高提取准确率，我尝试了两种方法：给关键词赋值并设置阈值来筛选时间行，和使用正则表达式进行提取。在使用第一种方法（给关键词赋值）时，主要有两个难点。首先，未校验文本，因为关键词拼写错误等原因，导致部分关键词难被赋值。其次，阈值的设定与准确率紧密关联。如果有足够多的时间，可以标注数据进行训练，通过机器学习的方法找到最优的阈值从而提升提取科目的准确率。</p>
+<br>
+
+<p style="font-size:17px">The changes in the number of subjects examined from year to year is shown in the graph below. It is clear that as time progresses, more and more subjects are included in the examinations. Especially around 1950, the number of subjects increased significantly.</p>
+<p style="font-size:15px; color:#BDBDBD">经过分析，每年考试科目数目的变化被显示在下方的图中。可以明显的看出随着时间的前进，越来越多的科目被包含在了考试当中。尤其是 1950 年前后，数目大幅度的增长。</p>
+
+<br>
+<div align="center">
+<img src="https://i.loli.net/2021/03/08/s3LpwvRzqOaj2XP.png" alt="subject.jpg" width="100%" title="subject.jpg">
+</div>
+<br>
+
+<p style="font-size:17px">(How subject quantity changes over years)</p>
+<p style="font-size:15px; color:#BDBDBD">（考试科目数目如何随着时间变化）</p>
+
+
+<br>
+
+
+
+<p style="font-size:17px">In terms of presentation, we decided to present the data in a serious comic style, which would appeal to a wider audience, without losing the seriousness of the data. The entire comic will be shown on a web page, for which we have also designed a number of dynamic elements to increase the interactivity of the page.</p>
+<p style="font-size:15px; color:#BDBDBD">在表现形式方面，我们决定将数据通过较严肃的漫画风格的形式展现出来，即能吸引更多的观众，又不失数据的严肃性。整个漫画将用网页呈现，为此，我们也设计了许多动效元素，增加网页的可交互性。</p>
+
+<br>
+
+<p style="font-size:17px">To further explore the changes in subjects, I have selected four representative years for further analysis. The 1888 student bag contained textbooks for 12 subjects, distributed in three different areas: languages, math and sciences.</p>
+<p style="font-size:15px; color:#BDBDBD">为了进一步探讨科目的变迁，我选取了 4 个具有代表性的年份进行进一步分析。1888年，学生的书包中只包含12个科目，并且只覆盖了语言，数学，和科学领域。</p>
+
+
+<br>
+
+<div align="center">
+<img src="https://i.loli.net/2021/03/09/cKlvouti27FUdmR.jpg" alt="1888.jpg" width="100%" title="1888.jpg">
+</div>
+
+<br>
+<p style="font-size:17px">After 1888, the number of subjects gradually increased. By 1921, a total of 16 courses had been included. More and more courses were added to the fields of languages, maths and sciences. Gaelic, for example, was a new course that was not in 1888.</p>
+<p style="font-size:15px; color:#BDBDBD">1888年后，科目的数量缓慢增加。到1921年，已经增加到了16门课程。在语言学，数学，和科学领域均有所增加。例如，盖尔语就是一门在1888年还未开设的课程。</p>
+
+
+<br>
+
+<div align="center">
+<img src="https://i.loli.net/2021/03/09/Iw94S7tko5CYKxu.jpg" alt="1921.jpg" width="100%" title="1921.jpg">
+</div>
+
+<br>
+<p style="font-size:17px">Around 1950, the number of courses increased dramatically. It has doubled in less than 30 years. In addition to the original three areas, other areas were added, like music and liberal arts. Meanwhile, the number of sciences-related subjects was also increased. This has been supplemented by zoology, chemistry, etc. The modern curriculum design is emerging!</p>
+<p style="font-size:15px; color:#BDBDBD">1950年前后，课程的数量急剧增加。不到30年的时间里，课程数量翻了一倍。除了原有的三个领域外，还增加了如音乐相关课程，文科课程。同时，与科学有关的科目也增加了，包括增加了动物学、化学等。可以看出，1950年前后已经颇有现代学科的影子了。</p>
+
+
+<br>
+
+<div align="center">
+<img src="https://i.loli.net/2021/03/09/S9cP5bMxuTUazJ1.jpg" alt="1950.jpg" width="100%" title="1950.jpg">
+</div>
+
+<br>
+
+<p style="font-size:17px">Then, the course began to develop in new areas. Dress and Design, Home Management courses were also being added to the mix. Eventually, by 1963, there were already 38 subjects in the exam!</p>
+<p style="font-size:15px; color:#BDBDBD">随着时间的推移，越来越多的课程加入到了新的领域。例如服装设计，家政等，也被加入其中。到1963年，考试中包含的科目已经达到了38个。</p>
+
+
+<br>
+
+<div align="center">
+<img src="https://i.loli.net/2021/03/09/vnD7E3ptHbYcaVz.jpg" alt="1963.jpg" width="100%" title="1963.jpg">
+</div>
+
+<br>
+
+
+<p style="font-size:17px">In addition to subject subject research, my teammates discussed topics such as sex bias. You can access our page through this link: <a href="https://relic-dyebt.github.io/scottish-exam/" target="_blank" rel="noopener"><b>Scottish School Exam Papers</b></a></p>
+<p style="font-size:15px; color:#BDBDBD">除了学科科目的研究，我的队友们还讨论了诸如性别偏见等的话题。你可以通过这个连接访问到我们的网页：<a href="https://relic-dyebt.github.io/scottish-exam/" style="color:#BDBDBD" target="_blank" rel="noopener"><b>Scottish School Exam Papers</b></a></p>
+
+<br>
+
+<hr>
+<br>
+
+<p><img src="/images/Github.png" width="3%"><a href="https://github.com/relic-dyebt/DS4D" target="_blank" rel="noopener"> GitHub</a></p>
+<p><img src="/images/PPT.png" width="3%"><a href="/images/DS4D_Group 6(1).pdf" download="slide"> Download project slides <span style="font-size:15px; color:#BDBDBD">下载项目幻灯片</span></a></p>
+<p><img src="/images/报告.png" width="3%"><a href="/images/DS4D - Report(1).pdf" download="report"> Download project report <span style="font-size:15px; color:#BDBDBD">下载项目报告</span></a></p>
+
+</html>
+</div>
+
+
+      </div>
+      
+  	</div>
+
+    <!-- After footer scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+  </body>
+</html>
